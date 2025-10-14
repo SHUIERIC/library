@@ -1,0 +1,11 @@
+.title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+}
+
+.bookContainer {
+    display: grid;
+    grid-template-columns: repeat (auto-fill, minmax(200px, 1fr));
+    gap: 5rem
+}
