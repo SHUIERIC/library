@@ -26,23 +26,23 @@ addBookToLibrary("1984", "George Orwell", 328, true);
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
 
 
+const container = document.querySelector(".bookContainer");
 
 function displayBook () { 
-    const container = document.querySelector(".bookContainer");
     container.innerHTML = "";
 
 
 myLibrary.forEach ((book) => {
-    const card = document.createElement("div")
-    card.classList.add("book-card")
+    const card = document.createElement("div");
+    card.classList.add("book-card");
+    card.dataset.id = book.id
 
     card.innerHTML = `
-        <div></div>
         <div> ${book.title} </div>
         <div> Author: ${book.author} </div>
         <div> Page Number: ${book.pageNumber} </div>
         <div> Read: ${book.read ?'Yes' : "No"} </div>
-        <div></div>
+        <button class="deleteBtn">Delete</button>
     `
     container.appendChild(card)
 }
@@ -79,6 +79,17 @@ confirmBtn.addEventListener("click", (e) => {
 })
 
 
+
+
+container.addEventListener ("click", (e) => {
+    if (e.target.classList.contains("deleteBtn")){
+    const id = e.target.dataset.id;
+    const deleteIndex = myLibrary.findIndex ( book => book.id === id);
+    myLibrary.splice(deleteIndex, 1);
+    e.target.closest(".book-card").remove()
+
+}
+})
 
 
 
