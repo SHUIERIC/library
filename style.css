@@ -6,6 +6,21 @@
 
 .bookContainer {
     display: grid;
-    grid-template-columns: repeat (auto-fill, minmax(200px, 1fr));
-    gap: 5rem
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.book-card {
+    border-color: black;
+}
+
+.addBtn {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
 }

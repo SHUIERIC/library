@@ -11,7 +11,53 @@
     
 
     <div class="title">My Library</div>
+
+    <p>
+    <button class="addBtn">Add Book</button>
+    </p>
+
     <div class="bookContainer"></div>
+
+
+
+    <dialog class="addBook">
+
+        <form>
+
+        <p>
+            <label for="title">Book title:</label>
+            <input type="text" id="title">
+        </p>
+
+        <p>
+            <label for="author">Author:</label>
+            <input type="text" id="author">
+        </p>
+
+        <p>
+            <label for="pageNumber">Page Number:</label>
+            <input type="number" id="pageNumber">
+        </p>
+
+        <p>
+            <div>Reading status </div>
+            <div>
+            <input type="radio" id="read-yes" name="readStatus" value="true">
+            <label for="read-yes">Yes</label>
+            </div>
+
+            <div>
+            <input type="radio" id="read-no" name="readStatus" value="false">
+            <label for="read-no">No</label>
+            </div>
+        </p>
+
+        <div>
+            <button id="confirmBtn" value="default">Confirm</button>
+            <button value="cancel" formmethod="dialog">Cancel</button>
+        </div>
+  </form>
+</dialog>
 
 
     <script src="script.js"></script>
