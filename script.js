@@ -9,10 +9,6 @@ function Book (title, author, pageNumber, read) {
     this.author = author;
     this.pageNumber = pageNumber;
     this.read = read;
-
-    this.sayBook = function () {
-        console.log(this.title)
-    }
 }
 
 
@@ -24,6 +20,7 @@ function addBookToLibrary (title, author, pageNumber, read) {
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, false);
 addBookToLibrary("1984", "George Orwell", 328, true);
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
+console.log (myLibrary)
 
 
 const container = document.querySelector(".bookContainer");
@@ -41,7 +38,8 @@ myLibrary.forEach ((book) => {
         <div> ${book.title} </div>
         <div> Author: ${book.author} </div>
         <div> Page Number: ${book.pageNumber} </div>
-        <div> Read: ${book.read ?'Yes' : "No"} </div>
+        <div class="readStatus"> Read: ${book.read ?'Yes' : "No"} </div>
+        <button class="readBtn">Read</button>
         <button class="deleteBtn">Delete</button>
     `
     container.appendChild(card)
@@ -83,13 +81,31 @@ confirmBtn.addEventListener("click", (e) => {
 
 container.addEventListener ("click", (e) => {
     if (e.target.classList.contains("deleteBtn")){
-    const id = e.target.dataset.id;
+    const id = e.target.closest(".book-card").dataset.id;
     const deleteIndex = myLibrary.findIndex ( book => book.id === id);
     myLibrary.splice(deleteIndex, 1);
     e.target.closest(".book-card").remove()
 
 }
 })
+
+
+Book.prototype.toggleReadStatus = function () {
+    this.read=!this.read
+}
+
+container.addEventListener ("click", (e) => {
+    if (e.target.classList.contains("readBtn")) {
+        const readCard = e.target.closest(".book-card")
+        const readId = readCard.dataset.id;
+        const readBook = myLibrary.find(book => book.id === readId)
+        readBook.toggleReadStatus()
+        const readDiv = readCard.querySelector(".readStatus");
+        readDiv.textContent = ` Read: ${readBook.read ?'Yes' : "No"}`
+    }
+    
+})
+
 
 
 

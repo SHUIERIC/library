@@ -12,6 +12,7 @@
 
 .book-card {
     border-color: black;
+    font-size: 1.1rem;
 }
 
 .addBtn {
@@ -19,8 +20,32 @@
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 8px;
-    background-color: #4CAF50;
+    background-color: #6174b3;
     color: white;
     border: none;
     cursor: pointer;
+}
+
+.deleteBtn {
+    margin-top: 0.3rem;
+    padding: 0.2rem 0.2rem;       
+    font-size: 1rem;        
+    font-weight: bold;        
+    border-radius: 8px;      
+    background-color: red; 
+    color: white;           
+    border: none;             
+    cursor: pointer;          
+}
+
+.readBtn {
+    margin-top: 0.3rem;
+    padding: 0.2rem 0.2rem;       
+    font-size: 1rem;        
+    font-weight: bold;        
+    border-radius: 8px;      
+    background-color: #4CAF50; 
+    color: white;           
+    border: none;             
+    cursor: pointer;          
 }
